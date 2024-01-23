@@ -214,8 +214,8 @@ const getStationByLocation = asyncHandler(async (req, res) => {
         //If any of the fields are undefined or empty
         throw new apierror(400,"Please fill all the fields!")
     }
+    //[RISE]: NEW LOCATION STRING AS ENTIRE ADDRESS
     const cityarr = city.toUpperCase().trim().split(", ")
-    console.log(cityarr);
     const regex = new RegExp(`${city.toUpperCase()}`)
 
     const stations = await Station.find({city:regex})
